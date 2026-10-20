@@ -1,4 +1,4 @@
-# status-band
+# claude status-band
 
 A clickable status band for Claude Code. It sits right above the prompt and shows what you usually have to go looking for: how much of your usage limit is left, what this session costs, what Claude is doing right now, your `/goal` and `/loop`, your recent prompts, GPU/CPU/RAM, a scratch memo, and your old `/buddy`.
 
