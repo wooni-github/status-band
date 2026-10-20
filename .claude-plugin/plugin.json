@@ -1,0 +1,221 @@
+{
+  "name": "status-band",
+  "version": "0.1.0",
+  "description": "Clickable status band above the Claude Code prompt: usage limits, cost, context, git, running agents, goal and loops, GPU/CPU/RAM, recent prompts, a memo and your /buddy pet",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "Band, toast and command text language (ko: 한국어, en: English)",
+      "options": [
+        "ko",
+        "en"
+      ],
+      "default": "en"
+    },
+    "theme": {
+      "type": "string",
+      "title": "Theme",
+      "description": "Pill text color: contrast = black or white per pill, whichever reads better on its color; auto follows Claude Code's theme; dark = white text, light = black text",
+      "options": [
+        "contrast",
+        "auto",
+        "dark",
+        "light"
+      ],
+      "default": "contrast"
+    },
+    "showGit": {
+      "type": "boolean",
+      "title": "Show git",
+      "description": "Branch, ahead/behind and staged/unstaged/untracked counts of the working copy",
+      "default": true
+    },
+    "gitIntervalSec": {
+      "type": "number",
+      "title": "Git interval (s)",
+      "description": "How often to re-read git status (it is also re-read after edits and shell commands)",
+      "default": 10
+    },
+    "showCost": {
+      "type": "boolean",
+      "title": "Show cost",
+      "description": "Session cost, $/h and output tok/s",
+      "default": true
+    },
+    "showActivity": {
+      "type": "boolean",
+      "title": "Show activity",
+      "description": "Running subagents and long tools with elapsed time, todo progress, files edited and tool/error counts",
+      "default": true
+    },
+    "showGoalLoop": {
+      "type": "boolean",
+      "title": "Show goal & loop",
+      "description": "The /goal condition and the scheduled /loop runs (what, and when the next one fires) in their own box above the prompts, only while there is one",
+      "default": true
+    },
+    "pet": {
+      "type": "string",
+      "title": "Pet",
+      "description": "buddy: your own Claude Code /buddy (rolled from your account, like Claude Code did); a species name: that companion; off: no pet",
+      "options": [
+        "buddy",
+        "duck",
+        "goose",
+        "blob",
+        "cat",
+        "dragon",
+        "octopus",
+        "owl",
+        "penguin",
+        "turtle",
+        "snail",
+        "ghost",
+        "axolotl",
+        "capybara",
+        "cactus",
+        "robot",
+        "rabbit",
+        "mushroom",
+        "chonk",
+        "off"
+      ],
+      "default": "buddy"
+    },
+    "petName": {
+      "type": "string",
+      "title": "Pet name",
+      "description": "Shown under the pet (empty: the species name)",
+      "default": ""
+    },
+    "petEye": {
+      "type": "string",
+      "title": "Pet eyes",
+      "description": "auto: the eyes your buddy rolled",
+      "options": [
+        "auto",
+        "·",
+        "✦",
+        "×",
+        "◉",
+        "@",
+        "°"
+      ],
+      "default": "auto"
+    },
+    "petHat": {
+      "type": "string",
+      "title": "Pet hat",
+      "description": "auto: the hat your buddy rolled (common buddies have none)",
+      "options": [
+        "auto",
+        "none",
+        "crown",
+        "tophat",
+        "propeller",
+        "halo",
+        "wizard",
+        "beanie",
+        "tinyduck"
+      ],
+      "default": "auto"
+    },
+    "petPlace": {
+      "type": "string",
+      "title": "Pet place",
+      "description": "auto: under the resource panel when it fits, else beside it; under / beside: only there (no room: no pet)",
+      "options": [
+        "auto",
+        "under",
+        "beside"
+      ],
+      "default": "auto"
+    },
+    "gpuLocal": {
+      "type": "boolean",
+      "description": "Poll this machine's GPU (macOS: Apple GPU via ioreg; Linux: nvidia-smi)",
+      "default": true,
+      "title": "Local GPU"
+    },
+    "gpuSsh": {
+      "type": "boolean",
+      "description": "Poll the GPU hosts below over ssh",
+      "default": true,
+      "title": "SSH GPU"
+    },
+    "showCpu": {
+      "type": "boolean",
+      "description": "Show CPU usage for this machine (and each ssh host when SSH GPU is on)",
+      "default": true,
+      "title": "Show CPU"
+    },
+    "showRam": {
+      "type": "boolean",
+      "description": "Show memory (RAM) usage for this machine (and each ssh host when SSH GPU is on)",
+      "default": true,
+      "title": "Show RAM"
+    },
+    "gpuColumns": {
+      "type": "string",
+      "title": "Resource columns",
+      "description": "auto: two columns when there are more than 4 rows (e.g. 8 GPUs) and they fit; 1 / 2: always",
+      "options": [
+        "auto",
+        "1",
+        "2"
+      ],
+      "default": "auto"
+    },
+    "gpuHosts": {
+      "type": "string",
+      "description": "Comma-separated ssh hosts to poll with nvidia-smi (used when SSH GPU is on)",
+      "default": "",
+      "title": "GPU hosts"
+    },
+    "gpuIntervalSec": {
+      "type": "number",
+      "description": "GPU/CPU/RAM poll interval in seconds",
+      "default": 15,
+      "title": "Resource interval (s)"
+    },
+    "usageIntervalSec": {
+      "type": "number",
+      "description": "Rate-limit usage fetch interval in seconds",
+      "default": 60,
+      "title": "Usage interval (s)"
+    },
+    "promptLines": {
+      "type": "number",
+      "title": "Prompt lines",
+      "description": "How many recent prompts to show",
+      "default": 3
+    },
+    "pillColors": {
+      "type": "string",
+      "title": "Palette",
+      "description": "4 colors #RRGGBB, comma-separated (pink, yellow, green, blue roles): pills, borders, titles",
+      "default": "#D0607A,#E8C07D,#A3BE8C,#5B80A8"
+    },
+    "pillText": {
+      "type": "string",
+      "title": "Pill text color",
+      "description": "#RRGGBB; empty: as Theme says",
+      "default": ""
+    },
+    "textColor": {
+      "type": "string",
+      "title": "Text color",
+      "description": "#RRGGBB for the prompt lines; empty: the terminal's",
+      "default": ""
+    }
+  },
+  "author": {
+    "name": "wooni-github",
+    "url": "https://github.com/wooni-github"
+  },
+  "homepage": "https://github.com/wooni-github/status-band",
+  "repository": "https://github.com/wooni-github/status-band",
+  "license": "MIT"
+}

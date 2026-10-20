@@ -1,0 +1,14 @@
+{
+  "name": "status-band",
+  "owner": {
+    "name": "wooni-github"
+  },
+  "description": "status-band: a clickable status band above the Claude Code prompt",
+  "plugins": [
+    {
+      "name": "status-band",
+      "source": "./",
+      "description": "Clickable status band above the Claude Code prompt"
+    }
+  ]
+}
