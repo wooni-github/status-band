@@ -45,11 +45,11 @@ test('Korean when set; /band lang switches the band', { options: { language: 'ko
     expect(await ko.find({ type: 'Text', text: re })).toBeDefined()
   expect(await ko.find({ type: 'Text', text: /Session:/ })).toBeUndefined()
   await ko.unmount()
-  expect((await $.command.run({ command: 'band', args: 'lang en' } as any)).text).toBe('band: language English')
+  expect((await $.command.run({ command: 'band', args: 'lang en' } as any)).text).toBe('language English')
   const en = await $.ui.mount({ plugin: 'status-band', surface: 'terminal', component: 'AbovePrompt', props })
   expect(await en.find({ type: 'Text', text: /Session:/ })).toBeDefined()
   expect(await en.find({ type: 'Text', text: /세션:/ })).toBeUndefined()
-  expect((await $.command.run({ command: 'band', args: 'ko' } as any)).text).toBe('band: 언어 한국어')
+  expect((await $.command.run({ command: 'band', args: 'ko' } as any)).text).toBe('언어 한국어')
   await en.unmount()
 })
 
